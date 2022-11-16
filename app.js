@@ -168,16 +168,16 @@ app.get("/transaction/:customer_id", async (req, res) => {
 });
 //get
 
-// app.get("/customer", async (req, res) => {
-//   try {
-//     const query = await pool.query(
-//       "select customer_id,name,phone,email,house_no,city,zipcode,username from customer"
-//     );
-//     res.json(query.rows);
-//   } catch (err) {
-//     console.error(err.message);
-//   }
-// });
+app.get("/customer", async (req, res) => {
+  try {
+    const query = await pool.query(
+      "select customer_id,name,phone,email,house_no,city,zipcode,username from customer"
+    );
+    res.json(query.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 app.get("/employee", async (req, res) => {
   try {
     const query = await pool.query("select * from EMP_LOGIN");
