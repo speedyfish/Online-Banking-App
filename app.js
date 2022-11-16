@@ -78,18 +78,18 @@ app.post("/accounts", async (req, res) => {
     console.error(err.message);
   }
 });
-app.delete("/accounts/:account_id", async (req, res) => {
-  try {
-    const { account_id } = req.params;
-    const query = await pool.query(
-      "delete from accounts where account_id=cast($1 as integer)",
-      [account_id]
-    );
-    res.send(query.rows);
-  } catch (error) {
-    console.log(error);
-  }
-});
+// app.delete("/accounts/:account_id", async (req, res) => {
+//   try {
+//     const { account_id } = req.params;
+//     const query = await pool.query(
+//       "delete from accounts where account_id=cast($1 as integer)",
+//       [account_id]
+//     );
+//     res.send(query.rows);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 app.get("/accounts", async (req, res) => {
   try {
     const query = await pool.query("select * from accounts");
