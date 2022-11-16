@@ -11,21 +11,17 @@ app.listen(port, () => {
   console.log(`Listening at port ${port}...`);
 });
 //POST
-app.post("/customer", async (req, res) => {
-  try {
-    console.log(req.body);
-    const { name, phone, email, house_no, city, zipcode, username, password } =
-      req.body;
-    console.log(`${name}`);
-    const query = await pool.query(
-      "call insert_into_customer($1,$2,$3,$4,$5,$6,$7,$8)",
-      [name, phone, email, house_no, city, zipcode, username, password]
-    );
-    res.send(query);
-  } catch (err) {
-    console.error(err.message);
-  }
-});
+// app.post('/customer', async(req,res)=>{
+//     try {
+//         console.log(req.body);
+//         const {name,phone,email,house_no,city,zipcode,username,password} = req.body;
+//         console.log(`${name}`)
+//         const query= await pool.query('call insert_into_customer($1,$2,$3,$4,$5,$6,$7,$8)',[name,phone,email,house_no,city,zipcode,username,password]);
+//         res.send(query);
+//     } catch (err) {
+//         console.error(err.message);
+//     }
+// });
 app.delete("/customer/:customer_id", async (req, res) => {
   try {
     const { customer_id } = req.params;
